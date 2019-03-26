@@ -35,7 +35,7 @@ func main() {
 
 		fmt.Println("Hello world - the log message")
 	})
-	http.HandleFunc("/goob", func(w httpResponseWriter, r *http.Request)) {
+	http.HandleFunc("/goob", func(w httpResponseWriter, r *http.Request) {
 		anum := 42
 		
 		res := &response{Message: "Hello World"}
@@ -49,7 +49,7 @@ func main() {
 		io.WriteString(w, string(out))
 		
 		fmt.Println("The goob is out.")
-	}
+	})
 	http.ListenAndServe(":8080", nil)
 }
 
