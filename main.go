@@ -40,7 +40,7 @@ func main() {
 		
 		res := &also_res{Message: "Hello World"}
 		
-		res.Number := anum
+		res.Number = anum
 		
 		out, _ := json.MarshalIndent(res, "", "  ")
 		
