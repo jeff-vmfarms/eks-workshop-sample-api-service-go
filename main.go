@@ -35,6 +35,21 @@ func main() {
 
 		fmt.Println("Hello world - the log message")
 	})
+	http.HandleFunc("/goob", func(w httpResponseWriter, r *http.Request)) {
+		anum := 42
+		
+		res := &response{Message: "Hello World"}
+		
+		res.num := anum
+		
+		out, _ := json.MarshalIndent(res, "", "  ")
+		
+		w.Header().Set("Content-Type", "text/plain")
+		
+		io.WriteString(w, string(out))
+		
+		fmt.Println("The goob is out.")
+	}
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -42,6 +57,11 @@ type response struct {
 	Message string   `json:"message"`
 	EnvVars []string `json:"env"`
 	Fib     []int    `json:"fib"`
+}
+
+type also_res struct {
+	Message string `json:"themess"`
+	Number  int	   `json:"num"`
 }
 
 func fib() func() int {
