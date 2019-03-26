@@ -38,7 +38,7 @@ func main() {
 	http.HandleFunc("/goob", func(w http.ResponseWriter, r *http.Request) {
 		anum := 42
 		
-		res := &response{Message: "Hello World"}
+		res := &also_res{Message: "Hello World"}
 		
 		res.Number := anum
 		
