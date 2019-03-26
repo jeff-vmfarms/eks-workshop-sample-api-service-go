@@ -35,7 +35,7 @@ func main() {
 
 		fmt.Println("Hello world - the log message")
 	})
-	http.HandleFunc("/goob", func(w httpResponseWriter, r *http.Request) {
+	http.HandleFunc("/goob", func(w http.ResponseWriter, r *http.Request) {
 		anum := 42
 		
 		res := &response{Message: "Hello World"}
